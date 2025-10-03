@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Person and Employee Test</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <script type="text/javascript">
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
 
+            greet() {
+                console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+            }
+        }
+
+        class Employee extends Person {
+            constructor(name, age, jobTitle) {
+                super(name, age); // Call the parent class constructor
+                this.jobTitle = jobTitle;
+            }
+
+            jobGreet() {
+                console.log(
+                    `Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`
+                );
+            }
+        }
+
+        const person = new Person("Alice", 25);
+        person.greet();
+        const employee = new Employee("Bob", 30, "Manager");
+        employee.jobGreet();
+        employee.greet();
+    </script>
 </body>
-
 </html>
